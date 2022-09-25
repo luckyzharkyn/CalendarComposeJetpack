@@ -149,12 +149,60 @@ fun horizontalRow() {
     }
 }
 
+@Composable
+fun MainCalendar() {
+    Column() {
+        getWeeksName()
+        getWeek()
+        getWeek()
+        getWeek()
+        getWeek()
+    }
+}
+@Composable
+fun getWeek() {
+    Row(
+        modifier = Modifier.padding(10.dp)
+    ) {
+        getDay(day = 1)
+        getDay(day = 2)
+        getDay(day = 3)
+        getDay(day = 4)
+        getDay(day = 5)
+        getDay(day = 6)
+        getDay(day = 7)
+    }
+}
+@Composable
+fun getDay(day: Int) {
+    Text(text = day.toString(), modifier = Modifier.padding(10.dp))
+}
+@Composable
+fun getWeeksName() {
+    Row(
+        modifier = Modifier.padding(10.dp)
+    ) {
+        getDayName(name = "пн")
+        getDayName(name = "вт")
+        getDayName(name = "ср")
+        getDayName(name = "чт")
+        getDayName(name = "пт")
+        getDayName(name = "сб")
+        getDayName(name = "вс")
+    }
+}
+@Composable
+fun getDayName(name: String) {
+    Text(text = name, modifier = Modifier.padding(10.dp))
+}
+
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     CalendarTheme {
-        Column {
-            horizontalRow()
-        }
+//        Column {
+//            horizontalRow()
+//        }
+        MainCalendar()
     }
 }
